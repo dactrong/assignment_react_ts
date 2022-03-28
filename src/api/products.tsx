@@ -1,11 +1,11 @@
 import instance from "./instance";
 
 export const create = (product:any) =>{
-       const url = `product`;
+       const url = `products`;
        return  instance.post(url,product) 
 }
 export const list = () =>{
-    const url = `product`;
+    const url = `products`;
     return instance.get(url)
 }
 export const read = (_id:number)=>{

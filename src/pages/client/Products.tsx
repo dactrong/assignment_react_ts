@@ -1,13 +1,16 @@
 import React from 'react'
+import { ProductType } from '../../types/Types'
 
-type Props = {}
+type ProductProps = {
+    product: ProductType[]
+}
 
-const Products = (props: Props) => {
+const Products = ({product}: ProductProps) => {
     return (
         <div>
-            
-           
-          
+
+
+
             <div className="shop-box-inner">
                 <div className="container">
                     <div className="row">
@@ -54,7 +57,7 @@ const Products = (props: Props) => {
                                         <a href="#" className="list-group-item list-group-item-action">Bags <small className="text-muted">(22)</small></a>
                                     </div>
                                 </div>
-                                
+
                             </div>
                         </div>
                         <div className="col-xl-9 col-lg-9 col-sm-12 col-xs-12 shop-content-right">
@@ -88,73 +91,36 @@ const Products = (props: Props) => {
                                     <div className="tab-content">
                                         <div role="tabpanel" className="tab-pane fade show active" id="grid-view">
                                             <div className="row">
-                                                <div className="col-sm-6 col-md-6 col-lg-4 col-xl-4">
-                                                    <div className="products-single fix">
-                                                        <div className="box-img-hover">
-                                                            <div className="type-lb">
-                                                                <p className="sale">Sale</p>
-                                                            </div>
-                                                            <img src="images/img-pro-01.jpg" className="img-fluid" alt="Image" />
-                                                            <div className="mask-icon text-left">
-                                                                <ul>
-                                                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i className="fas fa-eye" /></a></li>
-                                                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="Compare"><i className="fas fa-sync-alt" /></a></li>
-                                                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i className="far fa-heart" /></a></li>
-                                                                </ul>
-                                                                <a className="cart" href="#">Add to Cart</a>
-                                                            </div>
-                                                        </div>
-                                                        <div className="why-text">
-                                                            <h4>Lorem ipsum dolor sit amet</h4>
-                                                            <h5> $9.79</h5>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className="col-sm-6 col-md-6 col-lg-4 col-xl-4">
-                                                    <div className="products-single fix">
-                                                        <div className="box-img-hover">
-                                                            <div className="type-lb">
-                                                                <p className="new">New</p>
-                                                            </div>
-                                                            <img src="images/img-pro-02.jpg" className="img-fluid" alt="Image" />
-                                                            <div className="mask-icon text-left">
-                                                                <ul>
-                                                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i className="fas fa-eye" /></a></li>
-                                                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="Compare"><i className="fas fa-sync-alt" /></a></li>
-                                                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i className="far fa-heart" /></a></li>
-                                                                </ul>
-                                                                <a className="cart" href="#">Add to Cart</a>
+                                                {product?.map((product, index) => {
+                                                    return (
+                                                        <div className="col-sm-6 col-md-6 col-lg-4 col-xl-4" key={index}>
+                                                            <div className="products-single fix">
+                                                                <div className="box-img-hover">
+                                                                    <div className="type-lb">
+                                                                        <p className="sale">Sale</p>
+                                                                    </div>
+                                                                    <img src={product.image} className="img-fluid" alt="Image" />
+                                                                    <div className="mask-icon text-left">
+                                                                        <ul>
+                                                                            <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i className="fas fa-eye" /></a></li>
+                                                                            <li><a href="#" data-toggle="tooltip" data-placement="right" title="Compare"><i className="fas fa-sync-alt" /></a></li>
+                                                                            <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i className="far fa-heart" /></a></li>
+                                                                        </ul>
+                                                                        <a className="cart" href="#">Add to Cart</a>
+                                                                    </div>
+                                                                </div>
+                                                                <div className="why-text">
+                                                                    <h4>{product.name}</h4>
+                                                                    <h5>{product.price}</h5>
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                        <div className="why-text">
-                                                            <h4>Lorem ipsum dolor sit amet</h4>
-                                                            <h5> $9.79</h5>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className="col-sm-6 col-md-6 col-lg-4 col-xl-4">
-                                                    <div className="products-single fix">
-                                                        <div className="box-img-hover">
-                                                            <div className="type-lb">
-                                                                <p className="sale">Sale</p>
-                                                            </div>
-                                                            <img src="images/img-pro-03.jpg" className="img-fluid" alt="Image" />
-                                                            <div className="mask-icon text-left">
-                                                                <ul>
-                                                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i className="fas fa-eye" /></a></li>
-                                                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="Compare"><i className="fas fa-sync-alt" /></a></li>
-                                                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i className="far fa-heart" /></a></li>
-                                                                </ul>
-                                                                <a className="cart" href="#">Add to Cart</a>
-                                                            </div>
-                                                        </div>
-                                                        <div className="why-text">
-                                                            <h4>Lorem ipsum dolor sit amet</h4>
-                                                            <h5> $9.79</h5>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                              
+                                                    )
+
+                                                })}
+
+                                             
+
                                             </div>
                                         </div>
                                         <div role="tabpanel" className="tab-pane fade" id="list-view">
@@ -261,8 +227,8 @@ const Products = (props: Props) => {
             </div>
             {/* End Shop Page */}
             {/* Start Instagram Feed  */}
-           
-          
+
+
         </div>
 
     )

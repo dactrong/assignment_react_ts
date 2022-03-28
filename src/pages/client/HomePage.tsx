@@ -2,45 +2,48 @@ import React from 'react'
 import Banner from '../../components/Banner'
 
 import Footer from '../../components/Footer'
+import { ProductType } from '../../types/Types'
 
 
-type Props = {}
+type HomePageProps = {
+    product: ProductType[];
+}
 
-function HomePage({ }: Props) {
+function HomePage({product }: HomePageProps) {
     return (
- 
+
         <div>
-            <Banner/>
+            <Banner />
             <div className="categories-shop">
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                             <div className="shop-cat-box">
-                                <img className="img-fluid" src="images/t-shirts-img.jpg"  />
+                                <img className="img-fluid" src="images/t-shirts-img.jpg" />
                                 <a className="btn hvr-hover" href="#">T-shirts</a>
                             </div>
                             <div className="shop-cat-box">
-                                <img className="img-fluid" src="images/shirt-img.jpg"  />
+                                <img className="img-fluid" src="images/shirt-img.jpg" />
                                 <a className="btn hvr-hover" href="#">Shirt</a>
                             </div>
                         </div>
                         <div className="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                             <div className="shop-cat-box">
-                                <img className="img-fluid" src="images/wallet-img.jpg"  />
+                                <img className="img-fluid" src="images/wallet-img.jpg" />
                                 <a className="btn hvr-hover" href="#">Wallet</a>
                             </div>
                             <div className="shop-cat-box">
-                                <img className="img-fluid" src="images/women-bag-img.jpg"  />
+                                <img className="img-fluid" src="images/women-bag-img.jpg" />
                                 <a className="btn hvr-hover" href="#">Bags</a>
                             </div>
                         </div>
                         <div className="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                             <div className="shop-cat-box">
-                                <img className="img-fluid" src="images/shoes-img.jpg"  />
+                                <img className="img-fluid" src="images/shoes-img.jpg" />
                                 <a className="btn hvr-hover" href="#">Shoes</a>
                             </div>
                             <div className="shop-cat-box">
-                                <img className="img-fluid" src="images/women-shoes-img.jpg"  />
+                                <img className="img-fluid" src="images/women-shoes-img.jpg" />
                                 <a className="btn hvr-hover" href="#">Women Shoes</a>
                             </div>
                         </div>
@@ -71,94 +74,34 @@ function HomePage({ }: Props) {
                         </div>
                     </div>
                     <div className="row special-list">
-                        <div className="col-lg-3 col-md-6 special-grid best-seller">
-                            <div className="products-single fix">
-                                <div className="box-img-hover">
-                                    <div className="type-lb">
-                                        <p className="sale">Sale</p>
-                                    </div>
-                                    <img src="images/img-pro-01.jpg" className="img-fluid" alt="Image" />
-                                    <div className="mask-icon text-left">
-                                        <ul>
-                                            <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i className="fas fa-eye" /></a></li>
-                                            <li><a href="#" data-toggle="tooltip" data-placement="right" title="Compare"><i className="fas fa-sync-alt" /></a></li>
-                                            <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i className="far fa-heart" /></a></li>
-                                        </ul>
-                                        <a className="cart" href="#">Add to Cart</a>
-                                    </div>
-                                </div>
-                                <div className="why-text">
-                                    <h4>Lorem ipsum dolor sit amet</h4>
-                                    <h5> $7.79</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-lg-3 col-md-6 special-grid top-featured">
-                            <div className="products-single fix">
-                                <div className="box-img-hover">
-                                    <div className="type-lb">
-                                        <p className="new">New</p>
-                                    </div>
-                                    <img src="images/img-pro-02.jpg" className="img-fluid" alt="Image" />
-                                    <div className="mask-icon text-left">
-                                        <ul>
-                                            <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i className="fas fa-eye" /></a></li>
-                                            <li><a href="#" data-toggle="tooltip" data-placement="right" title="Compare"><i className="fas fa-sync-alt" /></a></li>
-                                            <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i className="far fa-heart" /></a></li>
-                                        </ul>
-                                        <a className="cart" href="#">Add to Cart</a>
+                        {product?.map((product, index) => {
+                            return (
+                                <div className="col-lg-3 col-md-6 special-grid best-seller" key={index}>
+                                    <div className="products-single fix">
+                                        <div className="box-img-hover">
+                                            <div className="type-lb">
+                                                <p className="sale">Sale</p>
+                                            </div>
+                                            <img src={product.image} className="img-fluid" alt="Image" />
+                                            <div className="mask-icon text-left">
+                                                <ul>
+                                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i className="fas fa-eye" /></a></li>
+                                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="Compare"><i className="fas fa-sync-alt" /></a></li>
+                                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i className="far fa-heart" /></a></li>
+                                                </ul>
+                                                <a className="cart" href="#">Add to Cart</a>
+                                            </div>
+                                        </div>
+                                        <div className="why-text">
+                                            <h4>{product.name}</h4>
+                                            <h5> {product.price}VNĐ</h5>
+                                        </div>
                                     </div>
                                 </div>
-                                <div className="why-text">
-                                    <h4>Lorem ipsum dolor sit amet</h4>
-                                    <h5> $9.79</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-lg-3 col-md-6 special-grid top-featured">
-                            <div className="products-single fix">
-                                <div className="box-img-hover">
-                                    <div className="type-lb">
-                                        <p className="sale">Sale</p>
-                                    </div>
-                                    <img src="images/img-pro-03.jpg" className="img-fluid" alt="Image" />
-                                    <div className="mask-icon text-left">
-                                        <ul>
-                                            <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i className="fas fa-eye" /></a></li>
-                                            <li><a href="#" data-toggle="tooltip" data-placement="right" title="Compare"><i className="fas fa-sync-alt" /></a></li>
-                                            <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i className="far fa-heart" /></a></li>
-                                        </ul>
-                                        <a className="cart" href="#">Add to Cart</a>
-                                    </div>
-                                </div>
-                                <div className="why-text">
-                                    <h4>Lorem ipsum dolor sit amet</h4>
-                                    <h5> $10.79</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-lg-3 col-md-6 special-grid best-seller">
-                            <div className="products-single fix">
-                                <div className="box-img-hover">
-                                    <div className="type-lb">
-                                        <p className="sale">Sale</p>
-                                    </div>
-                                    <img src="images/img-pro-04.jpg" className="img-fluid" alt="Image" />
-                                    <div className="mask-icon text-left">
-                                        <ul>
-                                            <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i className="fas fa-eye" /></a></li>
-                                            <li><a href="#" data-toggle="tooltip" data-placement="right" title="Compare"><i className="fas fa-sync-alt" /></a></li>
-                                            <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i className="far fa-heart" /></a></li>
-                                        </ul>
-                                        <a className="cart" href="#">Add to Cart</a>
-                                    </div>
-                                </div>
-                                <div className="why-text">
-                                    <h4>Lorem ipsum dolor sit amet</h4>
-                                    <h5> $15.79</h5>
-                                </div>
-                            </div>
-                        </div>
+                            )
+                        })}
+
+                        
                     </div>
                 </div>
             </div>
@@ -178,7 +121,7 @@ function HomePage({ }: Props) {
                         <div className="col-md-6 col-lg-4 col-xl-4">
                             <div className="blog-box">
                                 <div className="blog-img">
-                                    <img className="img-fluid" src="images/blog-img.jpg"  />
+                                    <img className="img-fluid" src="images/blog-img.jpg" />
                                 </div>
                                 <div className="blog-content">
                                     <div className="title-blog">
@@ -196,7 +139,7 @@ function HomePage({ }: Props) {
                         <div className="col-md-6 col-lg-4 col-xl-4">
                             <div className="blog-box">
                                 <div className="blog-img">
-                                    <img className="img-fluid" src="images/blog-img-01.jpg"  />
+                                    <img className="img-fluid" src="images/blog-img-01.jpg" />
                                 </div>
                                 <div className="blog-content">
                                     <div className="title-blog">
@@ -214,7 +157,7 @@ function HomePage({ }: Props) {
                         <div className="col-md-6 col-lg-4 col-xl-4">
                             <div className="blog-box">
                                 <div className="blog-img">
-                                    <img className="img-fluid" src="images/blog-img-02.jpg"  />
+                                    <img className="img-fluid" src="images/blog-img-02.jpg" />
                                 </div>
                                 <div className="blog-content">
                                     <div className="title-blog">
@@ -232,7 +175,7 @@ function HomePage({ }: Props) {
                     </div>
                 </div>
             </div>
-           
+
         </div>
 
     )
