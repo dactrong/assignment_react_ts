@@ -20,8 +20,7 @@ const ProductAdd = (props: ProductAddProps) => {
     const {register, handleSubmit , formState:{errors}} = useForm<FormInputs>();
     const navigate = useNavigate()
     const onSubmit: SubmitHandler<FormInputs>  = (dataInput) => {
-        
-        
+   
             props.onAdd(dataInput);
             // chuyển trang
             navigate("/admin/product");
@@ -45,7 +44,7 @@ const ProductAdd = (props: ProductAddProps) => {
             <div className="form-group ">
                 <input type="text" className="form-control" id="category" aria-describedby="emailHelp"  {...register('category', {required:true}) } placeholder="Danh mục" />
             </div>
-            <button type="submit" className="btn btn-primary">Submit</button>
+            <button type="submit" className="btn btn-primary">Add Product</button>
         </form>
 
 

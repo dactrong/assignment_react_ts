@@ -13,6 +13,9 @@ import ProductList from './pages/admin/product/ProductList'
 import { ProductType } from './types/Types'
 import { create, list, remove, update } from './api/products'
 import ProductEdit from './pages/admin/product/ProductEdit'
+import Category from './pages/admin/categories/Category'
+import Signup from './pages/client/Signup'
+import Signin from './pages/client/Signin'
 
 
 function App() {
@@ -49,7 +52,7 @@ function App() {
       <Routes>
         <Route path="/" element={<WebsiteLayout />}>
           <Route index element={<HomePage product={products} />} />
-          <Route path="/product" element={<Products product={products} />} />
+          <Route path="product" element={<Products product={products} />} />
         </Route>
         <Route path="admin" element={<AdminLayout />}>
           <Route index element={<Dashboard />} />
@@ -57,10 +60,13 @@ function App() {
             <Route index element={<ProductList product={products} onRemove ={onHandleRemove} />} />
             <Route path="add" element={<ProductAdd onAdd = {onHandleAdd} />} />
             <Route  path=":id/edit" element= {<ProductEdit onUpdate={onHandleUpdate} />} />
-
           </Route>
-
+          <Route path ="category">
+             <Route index element= {<Category/>}/>
+          </Route>
         </Route>
+        <Route path="signup" element= {<Signup/>}/>
+        <Route path="signin" element= {<Signin/>}/>
       </Routes>
     </div>
   )

@@ -28,7 +28,7 @@ const Header = (props: Props) => {
                         </div>
                         <div className="our-link">
                             <ul>
-                                <li><a href="#">My Account</a></li>
+                                <li><a href="#"><NavLink to ="/signup">Đăng kí</NavLink></a></li>
                                 <li><a href="#">Our location</a></li>
                                 <li><a href="#">Contact Us</a></li>
                             </ul>

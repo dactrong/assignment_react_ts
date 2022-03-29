@@ -41,6 +41,7 @@ const ProductEdit = (props: ProductUpdateProps) => {
 
     return (
         <form className="w-90 " onSubmit={handleSubmit(onSubmit)}>
+            <h2>Update sản phẩm</h2>
             <div className="form-group ">
                 <input type="text" className="form-control" id="name" aria-describedby="emailHelp" {...register('name', { required: true })} placeholder="Tên sản phẩm" />
             </div> <br />
@@ -56,7 +57,7 @@ const ProductEdit = (props: ProductUpdateProps) => {
             <div className="form-group ">
                 <input type="text" className="form-control" id="category" aria-describedby="emailHelp"  {...register('category', { required: true })} placeholder="Danh mục" />
             </div>
-            <button type="submit" className="btn btn-primary">Submit</button>
+            <button type="submit" className="btn btn-primary">Update</button>
         </form>
 
 
