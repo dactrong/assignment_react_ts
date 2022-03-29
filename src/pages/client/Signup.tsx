@@ -1,9 +1,28 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { SubmitHandler, useForm } from 'react-hook-form'
+import { NavLink, useNavigate } from 'react-router-dom'
+import { signup } from '../../api/user'
 
-type Props = {}
 
-const Signup = (props: Props) => {
+type FormInput = {
+    name: string,
+    email: string,
+    password: string,
+    phone: number,
+    address: string
+}
+
+
+const Signup = () => {
+
+    const { register, handleSubmit, formState: { errors } } = useForm<FormInput>()
+    const navigate = useNavigate();
+    const onSubmit: SubmitHandler<FormInput> = (data) => {
+
+        signup(data)
+        navigate("/signin")
+    }
+
     return (
         <>
             <div className="container position-sticky z-index-sticky top-0">
@@ -28,10 +47,10 @@ const Signup = (props: Props) => {
                                             <a className="nav-link d-flex align-items-center me-2 active" aria-current="page" href="../pages/dashboard.html">
                                                 <i className="fa fa-chart-pie opacity-6 text-dark me-1" />
                                                 <NavLink to="/">Trang chủ</NavLink>
-                                                
+
                                             </a>
                                         </li>
-                                       
+
                                         <li className="nav-item">
                                             <a className="nav-link me-2" href="../pages/sign-up.html">
                                                 <i className="fas fa-user-circle opacity-6 text-dark me-1" />
@@ -45,7 +64,7 @@ const Signup = (props: Props) => {
                                             </a>
                                         </li>
                                     </ul>
-                                    
+
                                 </div>
                             </div>
                         </nav>
@@ -53,7 +72,6 @@ const Signup = (props: Props) => {
                     </div>
                 </div>
             </div>
-
             <div>
                 <section>
                     <div className="page-header min-vh-100">
@@ -71,27 +89,35 @@ const Signup = (props: Props) => {
                                             <p className="mb-0">Enter your email and password to register</p>
                                         </div>
                                         <div className="card-body">
-                                            <form role="form">
+                                            <form onSubmit={handleSubmit(onSubmit)} >
                                                 <div className="input-group input-group-outline mb-3">
                                                     <label className="form-label">Name</label>
-                                                    <input type="text" className="form-control" />
+                                                    <input type="text" className="form-control" {...register('name', { required: true })} />
                                                 </div>
                                                 <div className="input-group input-group-outline mb-3">
                                                     <label className="form-label">Email</label>
-                                                    <input type="email" className="form-control" />
+                                                    <input type="email" className="form-control" {...register('email', { required: true })} />
                                                 </div>
                                                 <div className="input-group input-group-outline mb-3">
                                                     <label className="form-label">Password</label>
-                                                    <input type="password" className="form-control" />
+                                                    <input type="password" className="form-control" {...register('password', { required: true })} />
+                                                </div>
+                                                <div className="input-group input-group-outline mb-3">
+                                                    <label className="form-label">Số điện thoại</label>
+                                                    <input type="text" className="form-control" {...register('phone', { required: true })} />
+                                                </div>
+                                                <div className="input-group input-group-outline mb-3">
+                                                    <label className="form-label">Địa chỉ</label>
+                                                    <input type="text" className="form-control" {...register('address', { required: true })} />
                                                 </div>
                                                 <div className="form-check form-check-info text-start ps-0">
-                                                    <input className="form-check-input" type="checkbox"  id="flexCheckDefault" defaultChecked />
+                                                    <input className="form-check-input" type="checkbox" id="flexCheckDefault" defaultChecked />
                                                     <label className="form-check-label" htmlFor="flexCheckDefault">
                                                         I agree the <a href="javascript:;" className="text-dark font-weight-bolder">Terms and Conditions</a>
                                                     </label>
                                                 </div>
                                                 <div className="text-center">
-                                                    <button type="button" className="btn btn-lg bg-gradient-primary btn-lg w-100 mt-4 mb-0">Sign Up</button>
+                                                    <button type="submit" className="btn btn-lg bg-gradient-primary btn-lg w-100 mt-4 mb-0">Sign Up</button>
                                                 </div>
                                             </form>
                                         </div>
@@ -109,8 +135,8 @@ const Signup = (props: Props) => {
                 </section>
 
             </div>
-            </>
-            )
+        </>
+    )
 }
 
-            export default Signup
+export default Signup

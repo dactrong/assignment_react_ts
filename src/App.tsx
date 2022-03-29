@@ -45,6 +45,7 @@ function App() {
 
     }
   }
+  
 
   
   return (
@@ -65,7 +66,7 @@ function App() {
              <Route index element= {<Category/>}/>
           </Route>
         </Route>
-        <Route path="signup" element= {<Signup/>}/>
+        <Route path="signup" element= {<Signup  />} />
         <Route path="signin" element= {<Signin/>}/>
       </Routes>
     </div>
