@@ -12,7 +12,6 @@ type FormInput = {
     address: string
 }
 
-
 const Signup = () => {
 
     const { register, handleSubmit, formState: { errors } } = useForm<FormInput>()
