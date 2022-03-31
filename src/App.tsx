@@ -20,6 +20,7 @@ import CategoryAdd from './pages/admin/categories/CategoryAdd'
 import { CategoryType } from './types/category'
 import { listCategory, creat } from './api/category'
 import CategoryEdit from './pages/admin/categories/CategoryEdit'
+import PrivateRouter from './components/PrivateRouter'
 
 
 function App() {
@@ -79,7 +80,7 @@ function App() {
           <Route index element={<HomePage product={products} />} />
           <Route path="product" element={<Products product={products} />} />
         </Route>
-        <Route path="admin" element={<AdminLayout />}>
+        <Route path="admin" element={<PrivateRouter><AdminLayout /></PrivateRouter>}>
           <Route index element={<Dashboard />} />
           <Route path="product">
             <Route index element={<ProductList product={products} onRemove={onHandleRemove} />} />

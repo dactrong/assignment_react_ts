@@ -46,7 +46,7 @@ const ProductList = ({ product, onRemove }: ProductsListProps) => {
                               </div>                           
                           </td>
                           <td>
-                            <img src={product.image} alt="" width="100px" />
+                            <img src={product.images} alt="" width="100px" />
                           </td>
                           <td>
                             <p className="text-xs font-weight-bold mb-0">{product.price}$</p>

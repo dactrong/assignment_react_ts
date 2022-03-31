@@ -82,7 +82,7 @@ function HomePage({product }: HomePageProps) {
                                             <div className="type-lb">
                                                 <p className="sale">Sale</p>
                                             </div>
-                                            <img src={product.image} className="img-fluid" alt="Image" />
+                                            <img src={product.images} className="img-fluid" alt="Image" />
                                             <div className="mask-icon text-left">
                                                 <ul>
                                                     <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i className="fas fa-eye" /></a></li>

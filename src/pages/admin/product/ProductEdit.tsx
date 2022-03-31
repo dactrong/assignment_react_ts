@@ -14,7 +14,7 @@ type FormInputs = {
     name: string,
     price: number,
     quantity: number,
-    image: string,
+    images: string,
     category: string
 }
 
@@ -52,7 +52,7 @@ const ProductEdit = (props: ProductUpdateProps) => {
                 <input type="number" className="form-control" id="quantity" aria-describedby="emailHelp"  {...register('quantity', { required: true })} placeholder="Số lượng" />
             </div> <br />
             <div className="form-group ">
-                <input type="text" className="form-control" id="images" aria-describedby="emailHelp"  {...register('image', { required: true })} placeholder="Ảnh" />
+                <input type="text" className="form-control" id="images" aria-describedby="emailHelp"  {...register('images', { required: true })} placeholder="Ảnh" />
             </div> <br />
             <div className="form-group ">
                 <input type="text" className="form-control" id="category" aria-describedby="emailHelp"  {...register('category', { required: true })} placeholder="Danh mục" />
