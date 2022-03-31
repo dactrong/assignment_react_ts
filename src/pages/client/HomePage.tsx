@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import Banner from '../../components/Banner'
 
 import Footer from '../../components/Footer'
@@ -9,7 +10,7 @@ type HomePageProps = {
     product: ProductType[];
 }
 
-function HomePage({product }: HomePageProps) {
+function HomePage({ product }: HomePageProps) {
     return (
 
         <div>
@@ -82,7 +83,7 @@ function HomePage({product }: HomePageProps) {
                                             <div className="type-lb">
                                                 <p className="sale">Sale</p>
                                             </div>
-                                            <img src={product.images} className="img-fluid" alt="Image" />
+                                            <a href={`/product/${product._id}`}><img src={product.images} className="img-fluid" alt="Image" /></a>
                                             <div className="mask-icon text-left">
                                                 <ul>
                                                     <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i className="fas fa-eye" /></a></li>
@@ -93,7 +94,7 @@ function HomePage({product }: HomePageProps) {
                                             </div>
                                         </div>
                                         <div className="why-text">
-                                            <h4>{product.name}</h4>
+                                            <Link to={`product/${product._id}`}><h4>{product.name}</h4></Link>
                                             <h5> {product.price}VNĐ</h5>
                                         </div>
                                     </div>
@@ -101,7 +102,7 @@ function HomePage({product }: HomePageProps) {
                             )
                         })}
 
-                        
+
                     </div>
                 </div>
             </div>

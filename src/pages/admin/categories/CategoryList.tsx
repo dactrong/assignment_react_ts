@@ -4,9 +4,10 @@ import { CategoryType } from '../../../types/category'
 
 type CategoryProps = {
     category:CategoryType[];
+    onRemoveCategory:(_id:number) => void
 }
 
-const CategoryList = ({category}: CategoryProps) => {
+const CategoryList = ({category, onRemoveCategory}: CategoryProps) => {
   return (
     
     <div className="container-fluid py-4 ">
@@ -47,8 +48,8 @@ const CategoryList = ({category}: CategoryProps) => {
                          
                          
                           <td className="align-middle">
-                            <button><Link to={`/admin/product/${category._id}/edit`}>Edit</Link></button>
-                            <button onClick={() => onRemove(category._id)}>Remove</button>
+                            <button><Link to={`/admin/category/${category._id}/edit`}>Edit</Link></button>
+                            <button onClick={() => onRemoveCategory(category._id)}>Remove</button>
                           </td>
                         </tr>
                       )

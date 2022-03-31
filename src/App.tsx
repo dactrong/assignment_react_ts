@@ -21,6 +21,7 @@ import { CategoryType } from './types/category'
 import { listCategory, creat } from './api/category'
 import CategoryEdit from './pages/admin/categories/CategoryEdit'
 import PrivateRouter from './components/PrivateRouter'
+import ProductDetail from './pages/client/ProductDetail'
 
 
 function App() {
@@ -65,7 +66,7 @@ function App() {
     const { data } = await creat(category);
     setCategory([...categorys, data])
   }
-  const onHandleCategoryRemove = (_id: number) =>{
+  const onHandleRemoveCategory = (_id: number) =>{
     remove(_id);
     setCategory(categorys.filter(item => item._id !==_id));
   }
@@ -79,7 +80,9 @@ function App() {
         <Route path="/" element={<WebsiteLayout />}>
           <Route index element={<HomePage product={products} />} />
           <Route path="product" element={<Products product={products} />} />
+          <Route path="product/:id" element={<ProductDetail />} />
         </Route>
+        
         <Route path="admin" element={<PrivateRouter><AdminLayout /></PrivateRouter>}>
           <Route index element={<Dashboard />} />
           <Route path="product">
@@ -88,10 +91,9 @@ function App() {
             <Route path=":id/edit" element={<ProductEdit onUpdate={onHandleUpdate} />} />
           </Route>
           <Route path="category">
-            <Route index element={<CategoryList category={categorys}  />} />
+            <Route index element={<CategoryList category={categorys} onRemoveCategory ={onHandleRemoveCategory}  />} />
             <Route path="add" element={<CategoryAdd onAddCategory={handleAddCategory} />} />
-            <Route path="edit" element={<CategoryEdit />} />
-
+            <Route path=":id/edit" element={<CategoryEdit />} />
           </Route>
         </Route>
         <Route path="signup" element={<Signup />} />
