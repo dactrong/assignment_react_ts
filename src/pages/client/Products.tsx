@@ -90,7 +90,7 @@ const Products = ({product}: ProductProps) => {
                                 <div className="row product-categorie-box">
                                     <div className="tab-content">
                                         <div role="tabpanel" className="tab-pane fade show active" id="grid-view">
-                                            <div className="row">
+                                            <div className="row px-30">
                                                 {product?.map((product, index) => {
                                                     return (
                                                         <div className="col-sm-6 col-md-6 col-lg-4 col-xl-4" key={index}>
@@ -99,7 +99,7 @@ const Products = ({product}: ProductProps) => {
                                                                     <div className="type-lb">
                                                                         <p className="sale">Sale</p>
                                                                     </div>
-                                                                    <img src={product.images} className="img-fluid" alt="Image" />
+                                                                    <img src={product.images}  alt="Image" width="300px" height="350px" />
                                                                     <div className="mask-icon text-left">
                                                                         <ul>
                                                                             <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i className="fas fa-eye" /></a></li>

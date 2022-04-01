@@ -15,42 +15,7 @@ function HomePage({ product }: HomePageProps) {
 
         <div>
             <Banner />
-            <div className="categories-shop">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                            <div className="shop-cat-box">
-                                <img className="img-fluid" src="images/t-shirts-img.jpg" />
-                                <a className="btn hvr-hover" href="#">T-shirts</a>
-                            </div>
-                            <div className="shop-cat-box">
-                                <img className="img-fluid" src="images/shirt-img.jpg" />
-                                <a className="btn hvr-hover" href="#">Shirt</a>
-                            </div>
-                        </div>
-                        <div className="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                            <div className="shop-cat-box">
-                                <img className="img-fluid" src="images/wallet-img.jpg" />
-                                <a className="btn hvr-hover" href="#">Wallet</a>
-                            </div>
-                            <div className="shop-cat-box">
-                                <img className="img-fluid" src="images/women-bag-img.jpg" />
-                                <a className="btn hvr-hover" href="#">Bags</a>
-                            </div>
-                        </div>
-                        <div className="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                            <div className="shop-cat-box">
-                                <img className="img-fluid" src="images/shoes-img.jpg" />
-                                <a className="btn hvr-hover" href="#">Shoes</a>
-                            </div>
-                            <div className="shop-cat-box">
-                                <img className="img-fluid" src="images/women-shoes-img.jpg" />
-                                <a className="btn hvr-hover" href="#">Women Shoes</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            
             {/* End Categories */}
             {/* Start Products  */}
             <div className="products-box">
@@ -58,22 +23,12 @@ function HomePage({ product }: HomePageProps) {
                     <div className="row">
                         <div className="col-lg-12">
                             <div className="title-all text-center">
-                                <h1>Featured Products</h1>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet lacus enim.</p>
+                                <h1>Sản phẩm nổi bật</h1>
+                                <hr />
                             </div>
                         </div>
                     </div>
-                    <div className="row">
-                        <div className="col-lg-12">
-                            <div className="special-menu text-center">
-                                <div className="button-group filter-button-group">
-                                    <button className="active" data-filter="*">All</button>
-                                    <button data-filter=".top-featured">Top featured</button>
-                                    <button data-filter=".best-seller">Best seller</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                
                     <div className="row special-list">
                         {product?.map((product, index) => {
                             return (
@@ -83,7 +38,7 @@ function HomePage({ product }: HomePageProps) {
                                             <div className="type-lb">
                                                 <p className="sale">Sale</p>
                                             </div>
-                                            <a href={`/product/${product._id}`}><img src={product.images} className="img-fluid" alt="Image" /></a>
+                                            <a href={`/product/${product._id}`}><img src={product.images}  alt="Image"  width="300px" height="350px"/></a>
                                             <div className="mask-icon text-left">
                                                 <ul>
                                                     <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i className="fas fa-eye" /></a></li>
